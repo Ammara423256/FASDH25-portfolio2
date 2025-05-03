@@ -1,0 +1,67 @@
+# **Mini Project Two**
+
+In this project our group explored how we can visualize the places used in any news articles.Key techniques used were extracting places names from the text using **regex** and
+**gazetteer**. We also applied **Named Entity Recognition (NER)** and **Geocoding** to visualize the places on a map. Following is the oveerview of  main steps taken to complete this project.
+
+## Repository structure
+
+We used a repository containing:
+
+-A folder named "articles' with the news article corpus.
+-A folder named "gazetteer" containing the tsv file with known place names and thier coordinates.
+
+## Extracting Place names from articles (using Regex and gazetteer)
+
+We made a script on python using a gazetteer to identify and tally place names mention across a large artcile corpus. It creates improved regx patterns for better detection
+and aggregates mention counts by location and month, outputting results to a TSV file.
+Following are the major steps taken to perform this task:
+
+### Adapting the script
+
+Firstly, I adapt the file path so that the script uses the gazetter and a larger corpus in our portfolio repository. Initially, the script only matched the main name(asciiname), but that missed a lot of mentions. So, I build a pattern to match the alternate names as well. For example,
+** # extracting ascciname from column 1 **
+    asciiname = columns[0]
+   ** # Process the row if it has 6 or more columns**
+    if asciiname:
+        patterns[asciiname] = {"pattern": re.escape(asciiname), "count": 0}
+
+   ** #extracting alternative names from 6th column**
+    alternate_names = columns[5].strip()
+    if alternate_names:
+        alternate_list=alternate_names.split(",") **# Split by commas to handle multiple alternatives**
+        for alternate in alternate_list:
+            alternate=alternate.strip()
+            if alternate:
+                patterns[alternate]={"pattern":re.escape(alternate),"count":0} **# escaping speacial characters and adding alternate names if present**
+
+Then, I adapt the script so that it skips the news artciles written before the start of current war (which i set as oct 7th, 2023).It does this by reading the data from each file name and skipping any file before that date. Afterwards, to ttrack how oftene each place is mentioned, i created a dictionary called mentions_per_month. It stores the number of mentions for each place in each month like this:
+
+{
+    'Gaza': {'2023-10': 12, '2023-11': 15},
+    'Rafah': {'2023-11': 7}
+}
+
+### Writing ouputs
+
+At the end, the scripts writes everything to a TSV file called reggex_count.tsv.This file has tnree columns: Placenames, counts and month. Each row tells how many times that place was mentioned.
+
+### Keeping Track with Git
+
+While working, I made sure to regularly add, commit, pull and push my changes with Git Bash:
+
+git add .
+git commit -m "message"
+git pull origin main
+git push origin main
+
+### finalizing
+
+once everything was done, i renamed my scipt to regex_script_final.py, this is the final version of  my script saved in the "scripts" Folder.
+
+
+## NER with Stanza
+
+
+
+
+

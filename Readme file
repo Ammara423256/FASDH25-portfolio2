@@ -1,14 +1,13 @@
 # **Mini Project Two**
 
-In this project our group explored how we can visualize the places used in any news articles.Key techniques used were extracting places names from the text using **regex** and
-**gazetteer**. We also applied **Named Entity Recognition (NER)** and **Geocoding** to visualize the places on a map. Following is the oveerview of  main steps taken to complete this project.
+In this project our group explored how we can visualize the places used in any news articles.Key techniques used were extracting places names from the text using **regex** and **gazetteer**. We also applied **Named Entity Recognition (NER)** and **Geocoding** to visualize the places on a map. Following is the oveerview of  main steps taken to complete this project.
 
 ## Repository structure
 
 We used a repository containing:
 
 -A folder named "articles' with the news article corpus.
--A folder named "gazetteer" containing the tsv file with known place names and thier coordinates.
+-A folder named "gazetteer" containing file named "geonames_gaza_selection", a tsv file containing a selection of places in gaza and a file named coordinates.tsv containing  a coordinate pair for each country in the world.
 
 ## Extracting Place names from articles (using Regex and gazetteer)
 
@@ -56,10 +55,65 @@ git push origin main
 
 ### finalizing
 
-once everything was done, i renamed my scipt to regex_script_final.py, this is the final version of  my script saved in the "scripts" Folder.
+once everything was done, I renamed my scipt to regex_script_final.py, this is the final version of  my script saved in the "scripts" Folder.
 
 
 ## NER with Stanza
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Building Gazetteer for the NER places
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Mapping the regex extracted place names
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Mapping the NER extracted place names
 
 
 

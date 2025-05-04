@@ -1,6 +1,6 @@
 # **Mini Project Two**
 
-In this project our group explored how we can visualize the places used in any news articles.Key techniques used were extracting places names from the text using **regex** and **gazetteer**. We also applied **Named Entity Recognition (NER)** and **Geocoding** to visualize the places on a map. Following is the oveerview of  main steps taken to complete this project.
+In this project, our group explored how we can visualize the places used in any news articles. Key techniques  were extracting place names from the text using **regex** and a **gazetteer**. We also applied **Named Entity Recognition (NER)** and **Geocoding** to visualize the places on a map. The Following is an oveerview of  main steps  to complete this project.
 
 ## Repository structure
 
@@ -95,22 +95,29 @@ once everything was done, I renamed my scipt to regex_script_final.py, this is t
 
 ## Mapping the regex extracted place names
 
+This task visualizes the frequency per month of places extracted using regex.An animated and a static map is created with plotly express displays how often each place was mentioned over time.
+Following are the major steps taken to perform this task:
 
+### Data Preparation
 
+- loaded geonames_gaza_selection.tsv containing  place names with their geographic coordinates (latitude and longitude).
+- Loaded  regex_counts.tsv containing the frequency of mentions of those place names, extracted using regex, along with the corresponding month.
+- Merged both datasets using the common column asciiname to combine geographic and frequency data into a single DataFrame. Note: **I adapted the python script for regex_counts to name the column with place names as asciiname, so that there will be no issue while merging the both files**.
 
+### Visualization
 
+- used plotly.express.scatter_geo() to create a world map showing place name frequencies.
+- each dot represents a place; its size and color reflect how frequently it was mentioned.
+- Added animation_frame="month" to visualize changes over time (one frame per month)
+- customized the map appearance
 
+### Design experiments
 
+- Tried both scatter_geo and scatter_mapbox; chose scatter_geo because it worked well with the small geographic region (Gaza area) and required no additional API keys.
+- Chose natural earth projection for a clean, minimalistic look that highlights data without clutter.
 
-
-
-
-
-
-
-
-
-
+### Saving the output
+- saved the map as: regex_map.html for web viewing and interaction, and as regex_map.png for a static snapshot of the full map.
 
 
 ## Mapping the NER extracted place names

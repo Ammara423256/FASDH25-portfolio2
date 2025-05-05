@@ -1,48 +1,50 @@
-#importing Libraries
+#importing required Libraries
 
-import re # built in library for regular expressions
-import os # built in library for os-dependent functions like files
-import pandas as pd # library for tabular data and exporting tsv
+import re # for working with regular expressions
+import os # for interacting with the operating systems like reading files
+import pandas as pd # for working with with tables and exporting tsv files
 
-#writing list of data rows in tsv
+#writing list of data rows in tsv file
 def write_tsv(rows, column_list, path):
     
-# converting list of rows into dataframe
-    df= pd.DataFrame(rows, columns=column_list)
+#create a table from the list of rows
+    
+    df= pd.DataFrame(rows, columns=column_list) 
 
-#writing the dataframe to tsv
+#saving the table to a file withoit row numbers
     df.to_csv(path, sep="\t", index=False)
 
 #define which folder to use
 folder= "../articles"
 
-# load the gazetteer from the tsv file:
+# loads the gazetteer (list of place names):
 path = "../gazetteers/geonames_gaza_selection.tsv"
 
-#reading the file
+#reading the gazetteer file content
 with open(path, encoding="utf-8") as file:
     data = file.read()
 
-#Building dictionary of pattterns for place name and a count of matches
-patterns = {}
+#Building dictionary to store patterns and  name mapping
+patterns = {} # stores regex patterns and count for each place 
 
 #mapping any name (including alternates) to its main asciiname
-name_to_ascii = {}
+name_to_ascii = {} #maps all the name variants to the main name(asciiname)
 
-# splitting gazetteer data by a new line at each row
+# splitting gazetteer into rows( one per line)
 rows = data.split("\n")
 
-# Skiping header row as the pattern starts from second row
+# loop through each row, skipping the header
 for row in rows[1:]:
     columns =row.split("\t")
     if len(columns)<6:
         continue  # skips rows without atleast 6 columns
 
-    # extracting asciiname from column 1    
+    # extracting asciiname (main name) from column (took help from chatgpt: script 1)
     asciiname = columns[0].strip()
     if not asciiname:
-        continue  # skip if no main name
-
+        continue  # skip if main name is missing
+    
+   # add main name to the patterns and mapping
     patterns[asciiname] = {"pattern": re.escape(asciiname), "count": 0} # escaping speacial characters and adding main name
     name_to_ascii[asciiname.lower()] = asciiname  # map to itself
 
@@ -53,6 +55,8 @@ for row in rows[1:]:
         for alternate in alternate_list:
             alternate=alternate.strip()
             if alternate and alternate.lower() not in name_to_ascii:
+                
+                # add alternate names to the patterns and map to main name
                 patterns[alternate] = {"pattern": re.escape(alternate), "count": 0} # escaping speacial characters and adding alternate names if present
                 name_to_ascii[alternate.lower()] = asciiname # map alternate to asciiname
 
@@ -62,24 +66,24 @@ mentions_per_month = {}
 #setting the war date to filter the articles having names after the war date
 war_start_date= '2023-10-07'
 
-#loop through each file in the folder
+#loop through all article files 
 for filename in os.listdir(folder):
     if not filename.endswith(".txt"): # process only .txt
-        continue
+        continue # skips non text file
 
-    # Extract the date from the filename
+    # Extract the date from the filename 
     date_str = filename.split("_")[0]
     if date_str < war_start_date:
-        continue #Skip the file if it is before the start of  the war
+        continue #Skip files from before the war
 
-    #filepath to current articles
+    #Build the full file path
     file_path = os.path.join(folder, filename)
 
     #Open and read the articles
     with open(file_path, encoding="utf-8") as file:
         text=file.read()
 
-    #looping through places to search for matches in  the text
+    #looping through places to search for mentions
     for place in patterns:
         pattern=patterns[place]["pattern"] # Get regex-safe pattern
         matches = re.findall(pattern, text, re.IGNORECASE)
@@ -87,12 +91,13 @@ for filename in os.listdir(folder):
         if count== 0:
             continue # skips places with zero frequency
 
-        # map current name (even if alternate) to its asciiname
+        # convert to main asciiname
         ascii_key = name_to_ascii[place.lower()]
+        
         patterns[ascii_key]["count"] += count #adding the number of times places found to the total frequency
-        month_str = date_str[:7] #extracting the month from the date string
+        month_str = date_str[:7] #extracting the year month from the date string
 
-        # initializing place and month in mentions_per_month dictionary 
+        # Add count to the mentions_per_month
         if ascii_key not in mentions_per_month:
             mentions_per_month[ascii_key] = {}                  
         if month_str not in mentions_per_month[ascii_key]:
@@ -101,9 +106,9 @@ for filename in os.listdir(folder):
         #Adding the new matches on the place names to the number of times it was mentioned that month    
         mentions_per_month[ascii_key][month_str] += count
 
-# Loop through each place in the mentions_per-month dictionary
+# print mentions per place by month in a dictionary-style format
 for place in mentions_per_month:
-    # Start a dictionary like printout for the current place
+    
     print(f'"{place}": {{')
 
     #Get a list of all the months in which the place names are mentioned
@@ -120,7 +125,7 @@ for place in mentions_per_month:
             print(f'    "{month}": {count}')
     print("},") # close the dictionary block and print the output
 
-#Convert the mentions_per_month dictionary to list of rows for output
+# prepare the data to export as rows in a table 
 rows = []
 
 #loop through each place again to prepare structured data for export
@@ -130,10 +135,10 @@ for place in mentions_per_month:
     for month in mentions_per_month[place]:
         count = mentions_per_month[place][month]
 
-        #Append a tuple (place, month, count) to the rows list
+        #Add each (place, month, count ) to the list
         rows.append((place, month, count))
 
-#Write final result to tsv file for external use        
+#save the final table as a TSV file        
 write_tsv(rows, ["asciiname","month", "count"],"regex_count.tsv")
 
 

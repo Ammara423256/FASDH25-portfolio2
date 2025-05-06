@@ -194,13 +194,7 @@ Following are the major steps taken to perform this task:
 
 So firstly, we used the script of mapping regex count because it was quite similar. We changed the file paths and and name of the common column. then, we executed the code but it was showing multiple errors continuously for two days. We consulted our professor Mathew he helped us with this issue. He told us that our longitudes and latitudes were in strings that is why were getting multiple errors. He changed the longitudes and latitudes to float instead of strings, and then we didnot get any error. But in our map the frequencies were scattered all over the map, tho we got 326 articles after 2024 on our NER file. 
 
-<<<<<<< HEAD
 
-
-
-
-=======
->>>>>>> cd38f11040b63e5582a5b8161d32a0aa063e269d
 ## Analysis of Regex+Gazetteer techniques
 
 The regex and gazetteer method works effectively when using complete term lists and well-designed patterns, providing accurate results without requiring machine learning or labeled data. However, this approach cannot detect names missing from the list or alternative spellings, and is unable to learn new patterns independently, functioning only within explicitly defined rules.

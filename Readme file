@@ -134,7 +134,12 @@ gazetteers/ (foldder containing the output file in FASDH25-protfolio2 )
 
 The script reads ner_counts.tsv line by line which was taken from the tsv file which contains two columns. 
 for files reading we used "with open(...)"
-loop through lines maually and use .split('\t') for TSV
+loop through lines maually and use .split('\t') for TSV removing duplicates.
+the 'get_coordinates()' function uses the Geonames to fetch latitude and longitude for each place
+if no coordinates were found for a place, the function returned "NA" for both latitude and longitude.
+Such places coordinates were added to the gazetteer tsv file manually.
+The final output, 'NER_gazetteer.tsv', is written to the NER_gazetteer.tsv in the folder gazetteers in the FASDH25-portfolio2
+
 Collect place names into simple alternate_list
 
 ## Maually looked up files 

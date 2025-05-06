@@ -4,10 +4,23 @@ In this project, our group explored how we can visualize the places used in any 
 
 ## Repository structure
 
-We used a repository containing:
+our Repository conatins:
 
--A folder named "articles' with the news article corpus.
--A folder named "gazetteer" containing file named "geonames_gaza_selection", a tsv file containing a selection of places in gaza and a file named coordinates.tsv containing  a coordinate pair for each country in the world.
+-A folder named "Scripts" with all the scripts used for this project.There are Five scripts:"regex_script_final.py","Copy_of_Gaza_NER2_Arsalan_Danish_Ammara_Shahzaib.ipnyb",
+"Mapping_Regex_script", "Mapping_NER_script" and "build_gazetteer_script.ipnyb".
+
+-A folder named "gazetteer" containing file named "geonames_gaza_selection", a tsv file containing a selection of places in gaza, a file named coordinates.tsv containing  a coordinate pair for each country in the world, and a tsv file named " NER_gazetteer" conating coordinates of places extracted using NER.
+
+-A folder named "Counts" containing files "ner_counts" and "regex_counts".
+
+-A folder named "Images" containing images for NER built map and regex built map.
+
+-A folder named "HTML" conataining HTML format of NER and Regex built map.
+
+-A folder named "AI_Documentation" containing files with AI documentation of each member.
+
+-A file named "Readme file" with the documentation of our project.
+
 
 ## Extracting Place names from articles (using Regex and gazetteer)
 
@@ -185,6 +198,21 @@ The regex and gazetteer method works effectively when using complete term lists 
 ## Analysis of NER+Stanza Method
 
 NER + Stanza method is organized and structured way for extracting location names from the articles . It produces accurate and well-organized outputs, particularly when working with large amounts of unstructured data, is one of its main advantages. The use of modern NLP Stanza, produces excellent named entity recognition, especially for geographical names. Additionally, you can improve the outcomes even more with AI support. Additionally, the approach is easy to implement into broader data workflows because it is accessible with other tools, such as Python, and is quite user-friendly. However, there are also significant drawbacks. There is a chance that someone else might review or even alter your NER output files if they are kept on sharing systems like Google Drive without the appropriate access permissions. This presents significant issues with data security and privacy, particularly when handling sensitive material. Moreover, tasks 2B and 3 were performed on two different NER files, which created challenges when trying to work them together. This fragmentation of data made it difficult to integrate and compare results efficiently.
+
+## Images of the Maps
+
+![Images](C:\Users\GB\Downloads\FASDH25-portfolio2\Images/ner_map.png)
+
+![Images](C:\Users\GB\Downloads\FASDH25-portfolio2\Images/regex_map.png)
+
+## Comparing Maps built by NER and Regex
+
+
+
+
+
+
+
 
 
 ## Critical Analysis of the Project

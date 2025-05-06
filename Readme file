@@ -131,3 +131,39 @@ Following are the major steps taken to perform this task:
 
 
 
+<<<<<<< HEAD
+
+
+
+
+## Analysis of Regex+Gazetteer techniques
+
+The regex and gazetteer method works effectively when using complete term lists and well-designed patterns, providing accurate results without requiring machine learning or labeled data. However, this approach cannot detect names missing from the list or alternative spellings, and is unable to learn new patterns independently, functioning only within explicitly defined rules.
+
+## Analysis of NER+Stanza Method
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Critical Analysis of the Project
+
+ One of the main challenges we faced was our limited experience with coding, combined with the short time frame for the project. With more time and additional practice, we believe we could have completed the project more effectively and with greater confidence. Additionally, some of the instructions provided were not detailed enough. In certain cases, we encountered unexpected errors that required manual corrections even after following the instructions precisely. Clearer guidance or more examples could have facilitated troubleshooting these issues more efficiently. Overall, the project was practical, providing valuable hands-on experience and encouraging out-of-the-box thinking, though the time available was a limiting factor. 
+
+
+
+
+
+
+
+
+=======
+>>>>>>> 0b28b9493dba6ad8851034c91a0a93ecf2ed3749

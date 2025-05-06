@@ -120,6 +120,7 @@ git push origin main
 ## Building Gazetteer for the NER places
 
 ### Introducing the project
+
 This part of the project creates a gazetteer of named entities(places) extracted through Named Entity recognition (NER). Using the [Geonames API](https://www.geonames.org/export/web-services.html, we retrieved the latitude and longitude of each place mentioned in the 'ner_counts.tsv' file and stored the output in 'NER_gazetteer.tsv'.
 
 ### files and folders
@@ -212,13 +213,6 @@ NER + Stanza method is organized and structured way for extracting location name
 The two maps generated from regex and NER data for January 2024 show different viewpoints on how placename mentions are distributed geographically. The NER-based map presents a wide regional view. The placenames appear across the Middle East, North Africa, and parts of Europe. This method seems to cast a wider network. This is capturing mentions from a range of sources and locations from the densely highlighted area around Israel and Palestine to scattered mentions across Turkey, Iran, and even parts of North and West Africa. The color intensity, peaking around mentions, suggests a balanced yet widespread frequency of place references. This reflects how NLP models recognize named entities across various backgrounds.
 
 In comparison, the regex-based map zooms in with deep focus.  This highlights a dense concentration of placename mentions almost exclusively within the Gaza Strip. This map reveals a hyperlocal pattern.  with the count scale shooting above 4,500 mentions in certain hotspots. It suggests that regex-based extraction, while narrower in scope, is highly effective at identifying frequent references to specific areas. Particularly in contexts like news reporting on conflict zones. This approach doesn’t pick up the broader regional picture but stands out at focusing on areas of high attention and repeated mention. Together, the two maps tell different stories: one of wide-ranging attention and another of intense, localized focus. The localized focus may be due to the current genocide in Gaza. 
-
-
-
-
-
-
-
 
 
 ## Critical Analysis of the Project

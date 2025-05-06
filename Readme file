@@ -142,15 +142,7 @@ The regex and gazetteer method works effectively when using complete term lists 
 
 ## Analysis of NER+Stanza Method
 
-
-
-
-
-
-
-
-
-
+NER + Stanza method is organized and structured way for extracting location names from the articles . It produces accurate and well-organized outputs, particularly when working with large amounts of unstructured data, is one of its main advantages. The use of modern NLP Stanza, produces excellent named entity recognition, especially for geographical names. Additionally, you can improve the outcomes even more with AI support. Additionally, the approach is easy to implement into broader data workflows because it is accessible with other tools, such as Python, and is quite user-friendly. However, there are also significant drawbacks. There is a chance that someone else might review or even alter your NER output files if they are kept on sharing systems like Google Drive without the appropriate access permissions. This presents significant issues with data security and privacy, particularly when handling sensitive material. Moreover, tasks 2B and 3 were performed on two different NER files, which created challenges when trying to work them together. This fragmentation of data made it difficult to integrate and compare results efficiently.
 
 
 

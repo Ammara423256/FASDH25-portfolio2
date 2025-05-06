@@ -168,10 +168,7 @@ Following are the major steps taken to perform this task:
 
 
 ## Mapping the NER extracted place names
-
-
-
-
+So firstly, we used the script of mapping regex count because it was quite similar. We changed the file paths and and name of the common column. then, we executed the code but it was showing multiple errors continuously for two days. We consulted our professor Mathew he helped us with this issue. He told us that our longitudes and latitudes were in strings that is why were getting multiple errors. He changed the longitudes and latitudes to float instead of strings, and then we didnot get any error. But in our map the frequencies were scattered all over the map, tho we got 326 articles after 2024 on our NER file. 
 
 
 
@@ -199,5 +196,4 @@ NER + Stanza method is organized and structured way for extracting location name
 
 
 
-=======
->>>>>>> 0b28b9493dba6ad8851034c91a0a93ecf2ed3749
+

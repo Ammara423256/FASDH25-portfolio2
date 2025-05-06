@@ -122,7 +122,7 @@ git push origin main
 ### Introducing the project
 This part of the project creates a gazetteer of named entities(places) extracted through Named Entity recognition (NER). Using the [Geonames API](https://www.geonames.org/export/web-services.html, we retrieved the latitude and longitude of each place mentioned in the 'ner_counts.tsv' file and stored the output in 'NER_gazetteer.tsv'.
 
----
+
 
 
 
@@ -199,5 +199,4 @@ NER + Stanza method is organized and structured way for extracting location name
 
 
 
-=======
->>>>>>> 0b28b9493dba6ad8851034c91a0a93ecf2ed3749
+

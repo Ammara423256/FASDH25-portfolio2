@@ -60,6 +60,53 @@ once everything was done, I renamed my scipt to regex_script_final.py, this is t
 
 ## NER with Stanza
 
+### Set up the Notebook
+I created a copy of the class notebook and renamed it to
+Gaza_NER2_arslan_Shah Zaib_Ammara.ipynb to reflect my group’s names.
+
+### Installation
+Then, I installed stanza by using this code: !pip install stanza
+
+### Import library and download language model
+Then, I installed and downloaded the English model for Stanza:
+
+### Creating the pipeline
+Then, I created a pipeline
+
+### Clone the repository
+I cloned FASDH25 folder on google collab.
+
+### Adapted the File Path
+I changed the path in the notebook to use the larger corpus from our portfolio repository instead of the session folder.
+I made sure the script could loop through all files in the corpus folder.
+
+### Filtered Articles by Date
+I added a condition to only extract place names from articles written in January 2024.
+To do this, I extracted the date from the filename.
+
+###  Extracted Place Names
+I filtered the named entities to extract only locations (GPE, LOC, or FAC).
+For every entity that matched, I added it to a dictionary to keep count.
+
+### Cleaned the Entity Names
+I cleaned up the place names by removing extra characters like 's and converted everything to lowercase.
+For example, I changed "Gaza's" to "Gaza" to avoid duplicates:
+
+###  Saved Results to a TSV File
+I wrote the final results to a file called ner_counts.tsv, with two columns.
+
+### Keeping Track with Git
+I downloaded the notebook as a .ipynb file, moved it to the scripts folder, and renamed it properly.
+Then, I committed and pushed the changes to GitHub: By using
+git add .
+git commit -m "Added final NER script for Task 2B"
+git pull origin main
+git push origin main
+
+
+
+
+
 
 
 

@@ -4,10 +4,23 @@ In this project, our group explored how we can visualize the places used in any 
 
 ## Repository structure
 
-We used a repository containing:
+our Repository conatins:
 
--A folder named "articles' with the news article corpus.
--A folder named "gazetteer" containing file named "geonames_gaza_selection", a tsv file containing a selection of places in gaza and a file named coordinates.tsv containing  a coordinate pair for each country in the world.
+-A folder named "Scripts" with all the scripts used for this project.There are Five scripts:"regex_script_final.py","Copy_of_Gaza_NER2_Arsalan_Danish_Ammara_Shahzaib.ipnyb",
+"Mapping_Regex_script", "Mapping_NER_script" and "build_gazetteer_script.ipnyb".
+
+-A folder named "gazetteer" containing file named "geonames_gaza_selection", a tsv file containing a selection of places in gaza, a file named coordinates.tsv containing  a coordinate pair for each country in the world, and a tsv file named " NER_gazetteer" conating coordinates of places extracted using NER.
+
+-A folder named "Counts" containing files "ner_counts" and "regex_counts".
+
+-A folder named "Images" containing images for NER built map and regex built map.
+
+-A folder named "HTML" conataining HTML format of NER and Regex built map.
+
+-A folder named "AI_Documentation" containing files with AI documentation of each member.
+
+-A file named "Readme file" with the documentation of our project.
+
 
 ## Extracting Place names from articles (using Regex and gazetteer)
 
@@ -104,40 +117,44 @@ git pull origin main
 git push origin main
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Building Gazetteer for the NER places
 
 ### Introducing the project
 This part of the project creates a gazetteer of named entities(places) extracted through Named Entity recognition (NER). Using the [Geonames API](https://www.geonames.org/export/web-services.html, we retrieved the latitude and longitude of each place mentioned in the 'ner_counts.tsv' file and stored the output in 'NER_gazetteer.tsv'.
 
+### files and folders
+
+ner_counts.tsv(TSV file with input of place names and NER counts)
+gazetteer/NER_gazetteer.tsv (final output with coordinates)
+build_gazetteer.ipynb(scrypt for reading and importing, geocoding and writing the gazetteer)
+gazetteers/ (foldder containing the output file in FASDH25-protfolio2 )
 
 
+## steps
 
+The script reads ner_counts.tsv line by line which was taken from the tsv file which contains two columns. 
+for files reading we used "with open(...)"
+loop through lines maually and use .split('\t') for TSV
+Collect place names into simple alternate_list
 
-
-
-
-
-
-
-
-
-
-
-
-
+## Maually looked up files 
+Some of the places coordinates were missing in the gazetter tsv labelling NA, so i had to manually add the coordinates from google and also from chatgpt. The other problem i encountered was to remove names of people, news agencies, and also groups belongings to different organization.
+I added the NA values manually in spreatsheet and below is the list of place names:
+Dahiyeh
+Shujayea
+Jama'A Islamiya coordinates
+Mezzeh
+Berui
+Philadelphi corridor
+Balakhiyah
+Zawiya al-Ahmaddiya
+Dahieh
+Taalabaya
+Rmeish
+Panjgur
+Zar'it
+Margaliot
+Yiron
 
 
 ## Mapping the regex extracted place names
@@ -168,12 +185,15 @@ Following are the major steps taken to perform this task:
 
 
 ## Mapping the NER extracted place names
+<<<<<<< HEAD
 So firstly, we used the script of mapping regex count because it was quite similar. We changed the file paths and and name of the common column. then, we executed the code but it was showing multiple errors continuously for two days. We consulted our professor Mathew he helped us with this issue. He told us that our longitudes and latitudes were in strings that is why were getting multiple errors. He changed the longitudes and latitudes to float instead of strings, and then we didnot get any error. But in our map the frequencies were scattered all over the map, tho we got 326 articles after 2024 on our NER file. 
 
 
 
 
 
+=======
+>>>>>>> 94910def470231f0f92f0f3111637a4633982292
 
 ## Analysis of Regex+Gazetteer techniques
 
@@ -183,17 +203,27 @@ The regex and gazetteer method works effectively when using complete term lists 
 
 NER + Stanza method is organized and structured way for extracting location names from the articles . It produces accurate and well-organized outputs, particularly when working with large amounts of unstructured data, is one of its main advantages. The use of modern NLP Stanza, produces excellent named entity recognition, especially for geographical names. Additionally, you can improve the outcomes even more with AI support. Additionally, the approach is easy to implement into broader data workflows because it is accessible with other tools, such as Python, and is quite user-friendly. However, there are also significant drawbacks. There is a chance that someone else might review or even alter your NER output files if they are kept on sharing systems like Google Drive without the appropriate access permissions. This presents significant issues with data security and privacy, particularly when handling sensitive material. Moreover, tasks 2B and 3 were performed on two different NER files, which created challenges when trying to work them together. This fragmentation of data made it difficult to integrate and compare results efficiently.
 
+## Images of the Maps
+
+![Images](C:\Users\GB\Downloads\FASDH25-portfolio2\Images/ner_map.png)
+
+![Images](C:\Users\GB\Downloads\FASDH25-portfolio2\Images/regex_map.png)
+
+## Comparing Maps built by NER and Regex
+The two maps generated from regex and NER data for January 2024 show different viewpoints on how placename mentions are distributed geographically. The NER-based map presents a wide regional view. The placenames appear across the Middle East, North Africa, and parts of Europe. This method seems to cast a wider network. This is capturing mentions from a range of sources and locations from the densely highlighted area around Israel and Palestine to scattered mentions across Turkey, Iran, and even parts of North and West Africa. The color intensity, peaking around mentions, suggests a balanced yet widespread frequency of place references. This reflects how NLP models recognize named entities across various backgrounds.
+
+In comparison, the regex-based map zooms in with deep focus.  This highlights a dense concentration of placename mentions almost exclusively within the Gaza Strip. This map reveals a hyperlocal pattern.  with the count scale shooting above 4,500 mentions in certain hotspots. It suggests that regex-based extraction, while narrower in scope, is highly effective at identifying frequent references to specific areas. Particularly in contexts like news reporting on conflict zones. This approach doesn’t pick up the broader regional picture but stands out at focusing on areas of high attention and repeated mention. Together, the two maps tell different stories: one of wide-ranging attention and another of intense, localized focus. The localized focus may be due to the current genocide in Gaza. 
+
+
+
+
+
+
+
 
 
 ## Critical Analysis of the Project
 
  One of the main challenges we faced was our limited experience with coding, combined with the short time frame for the project. With more time and additional practice, we believe we could have completed the project more effectively and with greater confidence. Additionally, some of the instructions provided were not detailed enough. In certain cases, we encountered unexpected errors that required manual corrections even after following the instructions precisely. Clearer guidance or more examples could have facilitated troubleshooting these issues more efficiently. Overall, the project was practical, providing valuable hands-on experience and encouraging out-of-the-box thinking, though the time available was a limiting factor. 
-
-
-
-
-
-
-
 
 

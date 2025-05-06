@@ -120,6 +120,7 @@ git push origin main
 ## Building Gazetteer for the NER places
 
 ### Introducing the project
+
 This part of the project creates a gazetteer of named entities(places) extracted through Named Entity recognition (NER). Using the [Geonames API](https://www.geonames.org/export/web-services.html, we retrieved the latitude and longitude of each place mentioned in the 'ner_counts.tsv' file and stored the output in 'NER_gazetteer.tsv'.
 
 ### files and folders
@@ -190,13 +191,16 @@ Following are the major steps taken to perform this task:
 
 
 ## Mapping the NER extracted place names
-<<<<<<< HEAD
+
 So firstly, we used the script of mapping regex count because it was quite similar. We changed the file paths and and name of the common column. then, we executed the code but it was showing multiple errors continuously for two days. We consulted our professor Mathew he helped us with this issue. He told us that our longitudes and latitudes were in strings that is why were getting multiple errors. He changed the longitudes and latitudes to float instead of strings, and then we didnot get any error. But in our map the frequencies were scattered all over the map, tho we got 326 articles after 2024 on our NER file. 
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> cd38f11040b63e5582a5b8161d32a0aa063e269d
 ## Analysis of Regex+Gazetteer techniques
 
 The regex and gazetteer method works effectively when using complete term lists and well-designed patterns, providing accurate results without requiring machine learning or labeled data. However, this approach cannot detect names missing from the list or alternative spellings, and is unable to learn new patterns independently, functioning only within explicitly defined rules.
@@ -212,16 +216,10 @@ NER + Stanza method is organized and structured way for extracting location name
 ![Images](C:\Users\GB\Downloads\FASDH25-portfolio2\Images/regex_map.png)
 
 ## Comparing Maps built by NER and Regex
+
 The two maps generated from regex and NER data for January 2024 show different viewpoints on how placename mentions are distributed geographically. The NER-based map presents a wide regional view. The placenames appear across the Middle East, North Africa, and parts of Europe. This method seems to cast a wider network. This is capturing mentions from a range of sources and locations from the densely highlighted area around Israel and Palestine to scattered mentions across Turkey, Iran, and even parts of North and West Africa. The color intensity, peaking around mentions, suggests a balanced yet widespread frequency of place references. This reflects how NLP models recognize named entities across various backgrounds.
 
 In comparison, the regex-based map zooms in with deep focus.  This highlights a dense concentration of placename mentions almost exclusively within the Gaza Strip. This map reveals a hyperlocal pattern.  with the count scale shooting above 4,500 mentions in certain hotspots. It suggests that regex-based extraction, while narrower in scope, is highly effective at identifying frequent references to specific areas. Particularly in contexts like news reporting on conflict zones. This approach doesn’t pick up the broader regional picture but stands out at focusing on areas of high attention and repeated mention. Together, the two maps tell different stories: one of wide-ranging attention and another of intense, localized focus. The localized focus may be due to the current genocide in Gaza. 
-
-
-
-
-
-
-
 
 
 ## Critical Analysis of the Project

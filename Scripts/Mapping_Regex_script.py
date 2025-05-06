@@ -4,11 +4,11 @@ import pandas as pd
 import plotly.express as px
 
 # loading gazetteer data containing place names and coordinates
-coordinates_path = "gazetteers/NER_gazetteer.tsv"
+coordinates_path = "../gazetteers/NER_gazetteer.tsv"
 coordinates_df = pd.read_csv(coordinates_path, sep="\t")
 
 # loading the TSV file containing regex frequency counts per place and month
-counts_df = pd.read_csv("ner_count.tsv", sep="\t")
+counts_df = pd.read_csv("../Count/ner_counts.tsv", sep="\t")
 
 # filter the data for January 2024
 counts_df = counts_df[counts_df["month"] == "2024-01"]

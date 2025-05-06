@@ -60,26 +60,55 @@ once everything was done, I renamed my scipt to regex_script_final.py, this is t
 
 ## NER with Stanza
 
+### Set up the Notebook
+I created a copy of the class notebook and renamed it to
+Gaza_NER2_arslan_Shah Zaib_Ammara.ipynb to reflect my group’s names.
 
+### Installation
+Then, I installed stanza by using this code: !pip install stanza
 
+### Import library and download language model
+Then, I installed and downloaded the English model for Stanza:
 
+### Creating the pipeline
+Then, I created a pipeline
 
+### Clone the repository
+I cloned FASDH25 folder on google collab.
 
+### Adapted the File Path
+I changed the path in the notebook to use the larger corpus from our portfolio repository instead of the session folder.
+I made sure the script could loop through all files in the corpus folder.
 
+### Filtered Articles by Date
+I added a condition to only extract place names from articles written in January 2024.
+To do this, I extracted the date from the filename.
 
+###  Extracted Place Names
+I filtered the named entities to extract only locations (GPE, LOC, or FAC).
+For every entity that matched, I added it to a dictionary to keep count.
 
+### Cleaned the Entity Names
+I cleaned up the place names by removing extra characters like 's and converted everything to lowercase.
+For example, I changed "Gaza's" to "Gaza" to avoid duplicates:
 
+###  Saved Results to a TSV File
+I wrote the final results to a file called ner_counts.tsv.tsv, with two columns.
 
-
-
+### Keeping Track with Git
+I downloaded the notebook as an .ipynb file, moved it to the scripts folder, and renamed it properly.
+Then, I committed and pushed the changes to GitHub By using
+git add.
+git commit -m "Added final NER script for Task 2B"
+git pull origin main
+git push origin main
 
 ## Building Gazetteer for the NER places
 
 ### Introducing the project
 This part of the project creates a gazetteer of named entities(places) extracted through Named Entity recognition (NER). Using the [Geonames API](https://www.geonames.org/export/web-services.html, we retrieved the latitude and longitude of each place mentioned in the 'ner_counts.tsv' file and stored the output in 'NER_gazetteer.tsv'.
 
-
-###files and folders
+### files and folders
 
 ner_counts.tsv(TSV file with input of place names and NER counts)
 gazetteer/NER_gazetteer.tsv (final output with coordinates)
@@ -87,17 +116,14 @@ build_gazetteer.ipynb(scrypt for reading and importing, geocoding and writing th
 gazetteers/ (foldder containing the output file in FASDH25-protfolio2 )
 
 
-##steps
+## steps
 
 The script reads ner_counts.tsv line by line which was taken from the tsv file which contains two columns. 
 for files reading we used "with open(...)"
 loop through lines maually and use .split('\t') for TSV
 Collect place names into simple alternate_list
 
-
-
-
-Maually looked up files 
+## Maually looked up files 
 Some of the places coordinates were missing in the gazetter tsv labelling NA, so i had to manually add the coordinates from google and also from chatgpt. The other problem i encountered was to remove names of people, news agencies, and also groups belongings to different organization.
 I added the NA values manually in spreatsheet and below is the list of place names:
 Dahiyeh
@@ -115,21 +141,6 @@ Panjgur
 Zar'it
 Margaliot
 Yiron
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Mapping the regex extracted place names
@@ -161,9 +172,17 @@ Following are the major steps taken to perform this task:
 
 ## Mapping the NER extracted place names
 
+## Analysis of Regex+Gazetteer techniques
+
+The regex and gazetteer method works effectively when using complete term lists and well-designed patterns, providing accurate results without requiring machine learning or labeled data. However, this approach cannot detect names missing from the list or alternative spellings, and is unable to learn new patterns independently, functioning only within explicitly defined rules.
+
+## Analysis of NER+Stanza Method
+
+NER + Stanza method is organized and structured way for extracting location names from the articles . It produces accurate and well-organized outputs, particularly when working with large amounts of unstructured data, is one of its main advantages. The use of modern NLP Stanza, produces excellent named entity recognition, especially for geographical names. Additionally, you can improve the outcomes even more with AI support. Additionally, the approach is easy to implement into broader data workflows because it is accessible with other tools, such as Python, and is quite user-friendly. However, there are also significant drawbacks. There is a chance that someone else might review or even alter your NER output files if they are kept on sharing systems like Google Drive without the appropriate access permissions. This presents significant issues with data security and privacy, particularly when handling sensitive material. Moreover, tasks 2B and 3 were performed on two different NER files, which created challenges when trying to work them together. This fragmentation of data made it difficult to integrate and compare results efficiently.
 
 
+## Critical Analysis of the Project
 
-
+ One of the main challenges we faced was our limited experience with coding, combined with the short time frame for the project. With more time and additional practice, we believe we could have completed the project more effectively and with greater confidence. Additionally, some of the instructions provided were not detailed enough. In certain cases, we encountered unexpected errors that required manual corrections even after following the instructions precisely. Clearer guidance or more examples could have facilitated troubleshooting these issues more efficiently. Overall, the project was practical, providing valuable hands-on experience and encouraging out-of-the-box thinking, though the time available was a limiting factor. 
 
 

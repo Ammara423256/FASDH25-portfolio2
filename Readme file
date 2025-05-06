@@ -167,24 +167,8 @@ Following are the major steps taken to perform this task:
 
 The regex and gazetteer method works effectively when using complete term lists and well-designed patterns, providing accurate results without requiring machine learning or labeled data. However, this approach cannot detect names missing from the list or alternative spellings, and is unable to learn new patterns independently, functioning only within explicitly defined rules.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Analysis of NER+Stanza Method
+
 
 
 

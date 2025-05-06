@@ -104,19 +104,6 @@ git pull origin main
 git push origin main
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Building Gazetteer for the NER places
 
 ### Introducing the project

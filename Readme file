@@ -197,9 +197,6 @@ So firstly, we used the script of mapping regex count because it was quite simil
 
 
 
-=======
->>>>>>> 94910def470231f0f92f0f3111637a4633982292
-
 ## Analysis of Regex+Gazetteer techniques
 
 The regex and gazetteer method works effectively when using complete term lists and well-designed patterns, providing accurate results without requiring machine learning or labeled data. However, this approach cannot detect names missing from the list or alternative spellings, and is unable to learn new patterns independently, functioning only within explicitly defined rules.
